@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOPI - Ceylon Coffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/common.css">
+</head>
+
+<body class="bg-black min-h-screen font-inter">
+    <!-- Header -->
+    <header class="relative z-40">
+        <!-- Top Bar -->
+        <div class="bg-[#2D5048] hidden md:block text-white text-xs py-5 px-4">
+            <div class="md:max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+                <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-map-marker-alt text-sm"></i>
+                        <span>Ceylonko Global (Pvt) Ltd, Kegalle, Sri Lanka</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-2 md:mt-0">
+                        <i class="fas fa-envelope text-sm"></i>
+                        <span>info@ceylonko.com</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6 md:mr-20">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-leaf text-sm"></i>
+                        <span>Wild Grown Coffee With Unforgettable Taste</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="bg-transparent w-full -mb-[22rem] md:-mb-60">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+                <!-- Social Icons -->
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#"
+                        class="bg-white bg-opacity-10 rounded-full py-[5px] px-[11px] md:py-[10px] md:px-[16px] text-white">
+                        <i
+                            class="fab fa-twitter text-xs md:text-sm transition-transform duration-300 hover:rotate-y-180"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-white bg-opacity-10 rounded-full py-[5px] px-[11px] md:py-[10px] md:px-[16px] text-white">
+                        <i class="fab fa-facebook text-sm transition-transform duration-300 hover:rotate-y-180"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-white bg-opacity-10 rounded-full py-[5px] px-[11px] md:py-[10px] md:px-[16px] text-white">
+                        <i class="fab fa-pinterest text-sm transition-transform duration-300 hover:rotate-y-180"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-white bg-opacity-10 rounded-full py-[5px] px-[11px] md:py-[10px] md:px-[16px] text-white">
+                        <i class="fab fa-instagram text-sm transition-transform duration-300 hover:rotate-y-180"></i>
+                    </a>
+                </div>
+
+                <!-- Logo -->
+                <div class="flex flex-col items-center">
+                    <img src="images/KOPI01-logo.png" alt="KOPI Logo" class="h-20 md:h-32 w-auto object-contain" />
+                </div>
+
+                <!-- Call & Cart -->
+                <div class="flex justify-center md:justify-end items-center space-x-6">
+                    <div class="flex items-center space-x-5">
+                        <span
+                            class="flex items-center justify-center rounded-full border-2 border-yellow-400 py-2 px-[11px] md:py-3 md:px-4"
+                            style="transform: rotateY(180deg);">
+                            <i class="fas fa-phone-alt text-yellow-400 text-sm md:text-xl"></i>
+                        </span>
+                        <div class="flex flex-col ml-2">
+                            <span class="text-xs text-white">Call us</span>
+                            <span class="text-sm md:text-lg font-semibold text-white">+94 (070) 188 9889</span>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <a href="#" class="text-white text-xl md:text-2xl">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                        <span
+                            class="absolute -top-2 -right-2 bg-green-500 rounded-full px-[6px] py-[2px] md:px-2 md:py-0.5 text-xs text-white">0</span>
+                    </div>
+                    <!-- Hamburger Icon absolutely positioned to the right -->
+                    <button id="openSidebar" class="text-white text-2xl block focus:outline-none  lg:hidden">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Navigation Links -->
+            <div class="w-full border-t border-white border-opacity-20 mt-2">
+                <div class="max-w-7xl mx-auto px-4 flex justify-center items-center py-6 relative">
+                    <div class="items-center space-x-14 justify-center w-full hidden md:flex">
+                        <a href="#" class="text-white hover:text-[#9DAF7E] font-medium transition-colors">About KOPI</a>
+                        <a href="#" class="text-white hover:text-[#9DAF7E] font-medium transition-colors">Why KOPI is
+                            Special</a>
+                        <a href="#" class="text-white hover:text-[#9DAF7E] font-medium transition-colors">Making
+                            Process</a>
+                        <a href="#" class="text-white hover:text-[#9DAF7E] font-medium transition-colors">KOPI Shop</a>
+                        <a href="#" class="text-white hover:text-[#9DAF7E] font-medium transition-colors">Perfect
+                            Brew</a>
+                        <a href="#" class="text-white hover:text-[#9DAF7E] font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebarMenu"
+        class="fixed top-0 right-0 h-full w-[95vw] max-w-[500px] bg-[#181810] z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <button id="closeSidebar" class="text-white text-3xl absolute top-6 right-6 focus:outline-none">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="flex flex-col mt-20 px-8 space-y-6">
+            <a href="#" class="text-white text-xl font-medium border-b border-[#333] pb-4">About KOPI</a>
+            <a href="#" class="text-[#9DAF7E] text-xl font-medium border-b border-[#333] pb-4">Why KOPI Is Special</a>
+            <a href="#" class="text-white text-xl font-medium border-b border-[#333] pb-4">Making Process</a>
+            <a href="#" class="text-white text-xl font-medium border-b border-[#333] pb-4">KOPI Shop</a>
+            <a href="#" class="text-white text-xl font-medium border-b border-[#333] pb-4">Perfect Brew</a>
+            <a href="#" class="text-white text-xl font-medium border-b border-[#333] pb-4">Contact</a>
+            <div class="flex items-center mt-6 border-b border-[#333] pb-4">
+                <i class="fas fa-shopping-cart text-white mr-3"></i>
+                <span class="text-white text-lg">0 items</span>
+                <span class="text-white text-lg ml-2">₤0.00</span>
+            </div>
+        </nav>
+
+    </div>
+
+    <!-- Hero Section -->
+    <main class="relative z-5">
+        <div id="hero-slider" class="mx-auto px-4 py-20 relative overflow-hidden">
+            <div class="flex justify-center">
+                <div class="flex items-center md:max-w-6xl justify-between w-full">
+                    <!-- Left Arrow -->
+                    <button id="slideLeft"
+                        class="group hidden md:block rounded-full px-4 py-2 md:px-6 md:py-4 text-gray-400 border border-gray-400 bg-transparent transition-all duration-300 z-20 relative overflow-hidden hover:border-white md:mt-32 mt-64">
+                        <i
+                            class="fas fa-chevron-left text-lg md:text-2xl transition-colors duration-300 group-hover:text-white"></i>
+                    </button>
+
+                    <div
+                        class="text-center max-w-4xl md:max-w-7xl mx-auto relative z-20 flex flex-col justify-end md:pb-48 h-[600px] md:h-[700px]">
+                        <h1 id="hero-title"
+                            class="font-playfair text-5xl md:text-7xl font-medium text-white text-shadow leading-tight transition-all duration-500">
+                            Heritage Brews
+                            <br>
+                            Relishing the <span class="gold-text">Soul of</span>
+                            <br>
+                            <span class="block">Ceylon KOPI</span>
+                        </h1>
+                    </div>
+
+                    <!-- Right Arrow -->
+                    <button id="slideRight"
+                        class="group hidden md:block rounded-full px-4 py-2 md:px-6 md:py-4 text-gray-400 border border-gray-400 bg-transparent transition-all duration-300 z-20 relative overflow-hidden hover:border-white md:mt-32 mt-64">
+                        <i
+                            class="fas fa-chevron-right text-lg md:text-2xl transition-colors duration-300 group-hover:text-white"></i>
+                    </button>
+                </div>
+                <!-- Background Images -->
+                <div id="hero-bg"
+                    class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 z-0"
+                    style="background-image: url('images/hero/img-1.jpg');">
+                </div>
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- KOPI – Ceylon Coffee Section -->
+    <section id="about-section"
+        class="w-full bg-gradient-to-b from-[#f8faf8] to-white pt-20 pb-36 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12 relative z-10">
+            <!-- Text Content -->
+            <div class="w-full lg:w-1/2 flex flex-col items-center md:items-start">
+                <h3 class="text-[#E87C2A] text-xl text-center md:text-left font-medium mb-4 font-inter">KOPI – Ceylon
+                    Coffee</h3>
+                <h2 class="font-playfair text-center md:text-left text-5xl font-bold text-[#2E524A] mb-8 leading-tight">
+                    Where Every Sip Brings Smiles
+                </h2>
+                <p
+                    class="text-[#234438] text-sm  leading-relaxed text-justify md:text-left md:leading-8 max-w-[30rem] mb-8 font-medium text-center md:text-left">
+                    Ceylon (Sri Lanka) is renowned for its breathtaking natural beauty, and equally renowned is its
+                    coffee. But what makes KOPI truly special is our commitment to quality, sustainability, and the
+                    belief that every cup of coffee can bring smiles not just to our customers but also to the farmers
+                    who need our support. At KOPI, we collect handpicked coffee cherries directly from the home gardens
+                    of Kandy. The dedicated hands of our local farmers carefully select each cherry, ensuring that only
+                    the best and ripest are chosen. Our products carry the essence of Ceylon, bringing you a taste of
+                    paradise in every cup. But we are not just about exceptional coffee; we are also about making a
+                    difference in the lives of those who work tirelessly to bring this goodness to your table.
+                </p>
+                <a href="#"
+                    class="inline-block bg-[#B7C9A6] hover:bg-[#9DAF7E] text-[#234438] font-inter px-10 py-4 transition-colors duration-200 ">
+                    Visit About Us
+                </a>
+            </div>
+            <!-- Image -->
+            <!-- Place this carousel where you want it, e.g. after the about section -->
+            <div id="image-carousel" class="relative w-full max-w-lg mx-auto overflow-hidden select-none mt-12">
+                <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                    <img src="images/second/img-3.jpg"
+                        class="w-full flex-shrink-0 object-cover rounded-2xl shadow-xl h-[400px] md:h-[600px]"
+                        alt="Image 1" />
+                    <img src="images/second/img-1.jpg"
+                        class="w-full flex-shrink-0 object-cover rounded-2xl shadow-xl h-[400px] md:h-[600px]"
+                        alt="Image 1" />
+                    <img src="images/second/img-2.jpg"
+                        class="w-full flex-shrink-0 object-cover rounded-2xl shadow-xl h-[400px] md:h-[600px]"
+                        alt="Image 2" />
+                </div>
+            </div>
+        </div>
+        <!-- House background image at the bottom -->
+        <div id="about-bg-house"
+            class="absolute md:-left-80 bottom-0 bottom-0 w-full h-60 md:h-[34rem] bg-no-repeat bg-bottom bg-contain pointer-events-none z-0 transition-transform duration-500"
+            style="background-image: url('images/second/bg-img.webp');">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-[#EAEFE6] py-28 px-4 md:px-20 relative overflow-hidden">
+        <!-- Right half background for desktop, bottom half for mobile -->
+        <div class="absolute inset-0 z-0">
+            <!-- Desktop: right half, Mobile: bottom half -->
+            <div class="hidden md:block absolute inset-y-0 right-0 w-1/2 bg-[#2E524A]"></div>
+            <div class="block md:hidden absolute left-0 bottom-0 w-full h-1/2 bg-[#2E524A]"></div>
+        </div>
+        <div class="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center relative z-10">
+            <!-- Left Features -->
+            <div class="flex flex-col relative">
+                <div class="flex items-center gap-5 py-4 text-[#2E524A]">
+                    <span class="bg-white rounded-full py-3 px-5"><i class="fas fa-map-marker-alt text-2xl"></i></span>
+                    <div>
+                        <h4 class="font-bold text-[18px]">Unique Origin</h4>
+                        <p class="text-[16px] font-normal mt-3">Ceylon coffee stands out due to its distinct origin in
+                            Sri Lanka, offering a
+                            unique flavor profile attributed to the region's climate and soil.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-5 pt-7 pb-4 text-[#2E524A]">
+                    <span class="bg-white rounded-full py-4 px-5"><i class="fas fa-seedling text-2xl"></i></span>
+                    <div>
+                        <h4 class="font-bold text-[18px]">Wild and Home Garden Cultivation</h4>
+                        <p class="text-[16px] font-normal mt-3">KOPI sources beans from both wild-grown and home garden
+                            cultivation,
+                            contributing to diverse flavors and supporting sustainable agricultural practices.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-5 pt-7 pb-4 text-[#2E524A]">
+                    <span class="bg-white rounded-full py-4 px-5"><i class="fas fa-handshake text-2xl"></i></span>
+                    <div>
+                        <h4 class="font-bold text-[18px]">Direct Purchasing</h4>
+                        <p class="text-[16px] font-normal mt-3">The brand practices direct purchasing, ensuring a
+                            transparent supply chain
+                            and supporting ethical practices by establishing direct relationships with coffee producers.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Center Image -->
+            <div class="flex justify-center relative">
+                <img src="images/third/middle-img.png" alt="Coffee Pack" class="h-[30rem] z-20 relative" />
+            </div>
+            <!-- Right Features -->
+            <div class="flex flex-col relative">
+                <div class="flex items-center gap-5 py-4">
+                    <div class="text-[#D5DCDB] text-right">
+                        <h4 class="font-bold text-[18px]">Ethical Sourcing</h4>
+                        <p class="text-[16px] font-normal mt-3">KOPI prioritizes ethical sourcing, emphasizing fair
+                            trade and responsible
+                            agricultural methods to benefit local communities and promote sustainable coffee production.
+                        </p>
+                    </div>
+                    <span class="bg-white rounded-full py-4 px-5 text-[#2E524A]"><i
+                            class="fas fa-leaf text-2xl"></i></span>
+                </div>
+                <div class="flex items-center gap-5 pt-7 pb-4">
+                    <div class="text-[#D5DCDB] text-right">
+                        <h4 class="font-bold text-[18px]">Real Flavor Experience</h4>
+                        <p class="text-[16px] font-normal mt-3">Ceylon coffee provides a genuine taste experience,
+                            reflecting the purity of
+                            its origin and the meticulous care taken in its cultivation, harvesting, and processing.</p>
+                    </div>
+                    <span class="bg-white rounded-full py-4 px-4 text-[#2E524A]"><i
+                            class="fas fa-coffee text-2xl"></i></span>
+                </div>
+                <div class="flex items-center gap-5 pt-7 pb-4">
+                    <div class="text-[#D5DCDB] text-right">
+                        <h4 class="font-bold text-[18px]">Exceptional Quality</h4>
+                        <p class="text-[16px] font-normal mt-3">The commitment to quality is evident in every cup of
+                            Ceylon coffee, with
+                            stringent quality control measures and a focus on delivering a premium product.</p>
+                    </div>
+                    <span class="bg-white rounded-full py-4 px-5 text-[#2E524A]"><i
+                            class="fas fa-check-circle text-2xl"></i></span>
+                </div>
+
+            </div>
+            <!-- Absolute horizontal lines for all 3 rows -->
+            <div class="absolute left-0 right-0 top-[36%] md:top-[33%] h-px bg-gray-300 z-10"></div>
+            <div class="absolute left-0 right-0 top-[65%] md:top-[66%] h-px bg-gray-300 z-10"></div>
+        </div>
+    </section>
+
+    <!-- Ceylon Coffee Resurgence Section -->
+    <section class="bg-gradient-to-b from-[#f8faf8] to-white pb-20 pt-28 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-[#DB4E0A] text-2xl font-normal text-center mb-5 font-inter">Ceylon Coffee Resurgence</h3>
+            <h2 class="text-[#2E524A] text-5xl font-bold text-center font-playfair mb-16">
+                From 1780 to Modern Mastery
+            </h2>
+            <p class="text-[#234438] text-base md:text-[16px] leading-relaxed text-justify mb-8 font-inter mx-2">
+                Ceylon coffee has a rich history dating back to the 1780s when it was started by the Dutch and then the
+                British took it over. The cultivation began in the central hills, laying the foundation for the coffee
+                industry. During the British colonial period, Ceylon coffee gained prominence. Large-scale plantations
+                were established, and the industry flourished, contributing significantly to the country's economy.
+            </p>
+            <p class="text-[#234438] text-base md:text-[16px] leading-relaxed text-justify mb-10 font-inter mx-2">
+                In the 20th century, Ceylon coffee experienced a resurgence. Small-scale farmers began cultivating
+                coffee, diversifying into different varieties, and exploring the unique flavors of the region. The late
+                20th century and early 21st century witnessed a global rise in the demand for specialty coffee. Ceylon
+                coffee producers embraced this trend, focusing on quality, unique profiles, and sustainable practices.
+                Today, Ceylon coffee has evolved into a symbol of modern mastery. Producers leverage advanced
+                cultivation methods, sustainable practices, and a commitment to quality, positioning Ceylon coffee as a
+                premium and sought-after choice in the global coffee market.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div class="flex flex-col items-center">
+                    <img src="images/fourth/img-1.jpg" alt="Old Ceylon Coffee Production in 1800s"
+                        class="transition-transform duration-500 hover:scale-110 shadow-md w-full object-cover h-72" />
+                    <span class="italic text-sm text-gray-500 mt-3">Old Ceylon Coffee Production in 1800s</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="images/fourth/img-2.jpg" alt="Golden era of Dutch Ceylon Coffee"
+                        class="transition-transform duration-500 hover:scale-110 shadow-md w-full object-cover h-72" />
+                    <span class="italic text-sm text-gray-500 mt-3">Golden era of Dutch Ceylon Coffee</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="images/fourth/img-3.jpg" alt="Coffee Cultivation Area in old Ceylon"
+                        class="transition-transform duration-500 hover:scale-110 shadow-md w-full object-cover h-72" />
+                    <span class="italic text-sm text-gray-500 mt-3">Coffee Cultivation Area in old Ceylon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Youtube Video Section -->
+    <section class="relative h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden pb-12">
+        <!-- Fixed background image -->
+        <div class="absolute inset-0 w-full h-full bg-fixed bg-center bg-cover z-0"
+            style="background-image: url('images/hero/img-1.jpg');"></div>
+        <!-- Overlay for dark effect -->
+        <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+        <!-- Content -->
+        <div class="relative z-20 flex flex-col items-center justify-center w-full h-full">
+            <!-- Play button with wave effect -->
+            <button id="kopi-video-play"
+                class="relative flex items-center justify-center w-32 h-32 rounded-full group focus:outline-none hover:animate-bounce-zoom-kopi">
+                <!-- First wave: slow, large, fades out -->
+                <span class="absolute w-full h-full rounded-full bg-white opacity-20 animate-kopi-wave1"></span>
+                <!-- Second wave: slower, slightly smaller, fades out -->
+                <span class="absolute w-5/6 h-5/6 rounded-full bg-white opacity-15 animate-kopi-wave2"></span>
+                <!-- Play icon -->
+                <span
+                    class="relative z-10 flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-white bg-opacity-80 shadow-lg">
+                    <svg class="w-16 h-16 md:w-18 md:h-18 text-[#1F1E17]" fill="currentColor" viewBox="0 0 24 24">
+                        <polygon points="9.5,7.5 16.5,12 9.5,16.5" />
+                    </svg>
+                </span>
+            </button>
+            <!-- Heading -->
+            <h2
+                class="text-white max-w-3xl text-4xl md:text-6xl font-playfair font-bold text-center mt-10 drop-shadow-lg leading-tight md:leading-[1.2] lg:leading-[1.3]">
+                What makes Ceylon KOPI Rare and Special?
+            </h2>
+        </div>
+        <!-- Modal -->
+        <div id="kopi-video-modal"
+            class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+            <div class="relative w-full max-w-4xl mx-auto px-4">
+                <!-- Close button -->
+                <button id="kopi-video-close"
+                    class="absolute -top-12 right-2 text-white text-4xl font-bold focus:outline-none z-50">&times;</button>
+                <!-- Responsive YouTube video -->
+                <div class="aspect-w-32 aspect-h-18 h-96 md:h-[32rem]">
+                    <iframe id="kopi-video-iframe" class="w-full h-full rounded-lg" src="" title="Ceylon KOPI Video"
+                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: From Colonial Elegance to Modern Revival -->
+    <section class="relative bg-gradient-to-r from-white to-[#f8faf8] pt-24 pb-48 md:py-24 px-4 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
+            <!-- Left: Text -->
+            <div class="w-full md:w-1/2">
+                <h3 class="text-[#DB4E0A] text-2xl font-normal md:mb-3 font-inter">A Rich Heritage in Every Sip</h3>
+                <h2 class="font-playfair  text-5xl md:leading-[1.2] font-bold text-[#2E524A] mb-8 leading-[1.05]">
+                    From Colonial Elegance<br>to Modern Revival
+                </h2>
+                <p class="text-[#2E524A] text-justify text-[16px] leading-relaxed md:leading-[1.7] mb-10 font-inter">
+                    Ceylon coffee, tracing its roots to the 1780s in the lush landscapes of Sri Lanka, boasts a
+                    captivating journey through history. Introduced by the Dutch, the industry flourished in the
+                    island's elevated regions, gaining recognition for its unique terroir. By the 19th century, Ceylon
+                    coffee emerged as a global sensation, renowned for its exquisite quality and distinct flavor
+                    profile. However, the industry faced setbacks in the form of devastating diseases, leading to a
+                    decline in production. In the modern era, a remarkable resurgence has occurred, with a renewed focus
+                    on specialty coffee. Ceylon coffee now delights connoisseurs with its bright acidity, medium body,
+                    and nuanced flavors, reaffirming its status as a premier coffee origin with a rich and enduring
+                    legacy.
+                </p>
+                <button
+                    class="bg-[#B7C9A6] text-[14px] hover:bg-[#9DAF7E] text-[#234438] font-inter px-12 py-5 font-semibold transition-colors duration-200">
+                    Interested to Know
+                </button>
+            </div>
+            <!-- Right: Map and Dialog -->
+            <div class="w-full md:w-1/2 flex justify-center relative">
+                <!-- Map Image -->
+                <div class="relative">
+                    <img src="images/fifth/section-map.jpg" class="w-[30rem]" alt="Ceylon Coffee Map"
+                        class="rounded-lg shadow-xl w-[420px] max-w-full" />
+                    <!-- Dialog Box (floating) with rectangle pointer at bottom right -->
+                    <div id="coffee-era-dialog"
+                        class="absolute md:left-[-5.5rem] bottom-[-9rem] md:bottom-[5rem] bg-white shadow-2xl px-8 py-7 flex flex-col items-center transition-transform duration-500 rounded-tl-2xl rounded-bl-2xl"
+                        style="min-width: 260px;">
+                        <span class="text-gray-400 text-base font-inter mb-1">From Dutch Era of</span>
+                        <span class="text-[#EEC044] text-7xl font-bold leading-none mb-1">1780</span>
+                        <span class="text-gray-400 text-lg font-inter">to Modern Revival</span>
+                        <!-- Rectangle pointer shape at bottom right -->
+                        <div class="absolute right-0 bottom-[-18px] w-12 h-8 bg-white shadow-xl"
+                            style="clip-path: polygon(0 0, 100% 100%, 100% 0);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soil Stories Section -->
+    <section id="soil-stories" class="relative py-24 px-8 md:px-4 bg-white overflow-hidden bg-cover bg-center"
+        style="background-image: url('images/sixth/bg-img.jpg');">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <!-- Left: Text and Bars -->
+            <div class="w-full md:w-1/2">
+                <h3 class="text-[#DB4E0A] text-2xl font-normal mb-2 font-inter">A Journey through soil</h3>
+                <h2 class="font-playfair text-5xl font-bold text-[#2E524A] mb-5 md:leading-tight">
+                    Unveiling the Unique<br>Soil Stories
+                </h2>
+                <p class="text-[#2E524A] text-lg leading-relaxed mb-5 font-inter">
+                    Sri Lanka’s coffee terroir in Kandy’s elevated highlands, ideal for Arabica with bright acidity and
+                    nuanced flavors. In Kegalle’s lowlands, robust soils nurture resilient Robusta beans, yielding bold
+                    profiles with earthy tones.
+                </p>
+                <!-- Progress Bars -->
+                <div class="space-y-6">
+                    <!-- Bar 1 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-[#234438] text-lg">Rich Soil Composition</span>
+                            <span class="font-semibold text-[#888] text-sm" id="soil-bar1-label">0%</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-100">
+                            <div id="soil-bar1" class="h-2 bg-[#EEC044] transition-all duration-700" style="width:0%">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bar 2 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-[#234438] text-lg">Altitude and Well-Drained Terrain</span>
+                            <span class="font-semibold text-[#888] text-sm" id="soil-bar2-label">0%</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-100">
+                            <div id="soil-bar2" class="h-2 bg-[#EEC044] transition-all duration-700" style="width:0%">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bar 3 -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-[#234438] text-lg">Rainfall Patterns</span>
+                            <span class="font-bold text-[#888] text-sm" id="soil-bar3-label">0%</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-100">
+                            <div id="soil-bar3" class="h-2 bg-[#EEC044] transition-all duration-700" style="width:0%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Behind the Brew Section -->
+    <section class="relative py-24 px-4 bg-gradient-to-b from-[#f8faf8] to-white overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <!-- Left: Card with image and overlay text -->
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="relative w-full max-w-md rounded-2xl overflow-hidden shadow-xl">
+                    <img src="images/seventh//card-bg.jpg" alt="Behind the Brew" class="w-full h-[35rem] object-cover" />
+                </div>
+            </div>
+            <!-- Right: Text and Features -->
+            <div class="w-full md:w-1/2 flex flex-col items-start">
+                <h3 class="text-[#DB4E0A] text-xl font-medium mb-2 font-inter">Behind the Brew</h3>
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-[#2E524A] mb-6 leading-tight">
+                    Empowering our local<br class="hidden md:block"> smallholder farmers
+                </h2>
+                <p class="text-[#2E524A] text-base md:text-sm md:leading-6 mb-10 font-medium">
+                    Empowering local smallholder coffee farmers is our mission. Across Kandy and Kegalle, we're
+                    transforming communities by involving 1000 farmers in our innovative coffee manufacturing process.
+                    Through sustainable practices and fair trade, we ensure their success. Together, we're not just
+                    producing coffee; we're cultivating futures, fostering economic growth, and creating a thriving,
+                    empowered community.
+                </p>
+                <!-- Features -->
+                <div class="w-full flex flex-col sm:flex-row gap-6">
+                    <div
+                        class="flex-1 bg-[#2E524A] rounded-xl flex flex-col items-center justify-center py-14 px-4 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-3" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 20V10m0 0C9.239 10 7 7.761 7 5c0-2.761 2.239-5 5-5s5 2.239 5 5c0 2.761-2.239 5-5 5zm0 0v10" />
+                        </svg>
+                        <span class="font-semibold text-lg">Hand Picked</span>
+                    </div>
+                    <div
+                        class="flex-1 bg-[#2E524A] rounded-xl flex flex-col items-center justify-center py-14 px-4 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-3" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                        <span class="font-semibold text-lg">Empowering</span>
+                    </div>
+                    <div
+                        class="flex-1 bg-[#2E524A] rounded-xl flex flex-col items-center justify-center py-14 px-4 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-3" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 22s8-4.5 8-10V5a2 2 0 00-2-2H6a2 2 0 00-2 2v7c0 5.5 8 10 8 10z" />
+                        </svg>
+                        <span class="font-semibold text-lg">Sustainable</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#"
+            class="bg-green-500 hover:bg-green-600 text-white rounded-full px-4 pt-5 pb-4 shadow-2xl transition-all duration-300 hover-scale">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Currency Selector -->
+    <div id="currency-selector" class="fixed top-1/2 right-0 transform -translate-y-1/2 z-40 w-[320px]">
+        <!-- Compact (default) -->
+        <div id="currency-compact" class="flex flex-col absolute right-0 transition-all duration-300 z-10 text-sm">
+            <button class="bg-[#33584b] text-white mb-1 font-semibold py-3 px-3 border-b border-[#222]">LKR</button>
+            <button class="bg-[#222] text-white font-semibold py-3 text-left px-3">USD</button>
+        </div>
+        <!-- Expanded (hidden by default) -->
+        <div id="currency-expanded"
+            class="bg-[#222] text-white rounded-l-lg shadow-lg absolute right-0 top-0 w-[320px] transition-all duration-300 translate-x-full opacity-0 pointer-events-none z-20 text-[12px]">
+            <div class="px-6 py-3 text-center text-sm border-b border-gray-700 font-semibold tracking-wide">
+                SELECT YOUR CURRENCY
+            </div>
+            <button class="w-full flex items-center px-6 py-3 bg-[#33584b] text-white font-semibold focus:outline-none">
+                <span class="w-16 text-left">LKR</span>
+                <span class="flex-1 text-center">SRI LANKAN RUPEE</span>
+            </button>
+            <button class="w-full flex items-center px-6 py-3 bg-[#222] text-white font-semibold focus:outline-none">
+                <span class="w-16 text-left">USD</span>
+                <span class="flex-1 text-center">UNITED STATES (US) DOLLAR</span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Scroll Navbar -->
+    <div id="scroll-navbar"
+        class="fixed top-0 left-0 w-full z-[40] bg-[#2E524A] shadow-lg py-3 px-6 md:px-4 transition-transform duration-500 -translate-y-full">
+        <div class="md:max-w-6xl md:mx-auto w-full flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="images/KOPI01-logo.png" alt="KOPI Logo" class="h-28 w-auto object-contain" />
+            </div>
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">About KOPI</a>
+                <a href="#" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">Why KOPI is
+                    Special</a>
+                <a href="#" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">Making Process</a>
+                <a href="#" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">KOPI Shop</a>
+                <a href="#" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">Perfect Brew</a>
+                <a href="#" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">Contact</a>
+            </div>
+            <!-- Right Icons -->
+            <div class="flex items-center space-x-6">
+                <!-- Hamburger (mobile only) -->
+                <button id="scroll-navbar-hamburger" class="text-white text-2xl md:hidden focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Search -->
+                <button id="scroll-navbar-search-btn" class="text-white text-2xl focus:outline-none">
+                    <i class="fas fa-search"></i>
+                </button>
+                <!-- Cart -->
+                <div class="relative">
+                    <a href="#" class="text-white text-2xl">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span
+                        class="absolute -top-2 -right-2 bg-green-500 rounded-full px-2 py-0.5 text-xs text-white">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="scroll-navbar-search-overlay"
+        class="fixed inset-0 bg-black bg-opacity-80 z-[1000] flex items-center justify-center hidden">
+        <div class="bg-[#222] rounded-lg p-6 flex items-center space-x-4 w-full max-w-md mx-auto">
+            <input type="text" placeholder="Search..."
+                class="flex-1 px-4 py-2 rounded bg-[#181810] text-white outline-none" />
+            <button class="bg-[#2E524A] text-white px-5 py-2 rounded hover:bg-[#9DAF7E] transition">Search</button>
+            <button id="scroll-navbar-search-close" class="text-white text-2xl ml-2 focus:outline-none">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="scripts/common.js"></script>
+
+</body>
+
+</html>

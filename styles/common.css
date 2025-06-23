@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.gold-text {
+  color: #D4AF37;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.coffee-bean {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.slide-arrows {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.slide-arrows:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Add this to your style block or CSS file */
+.hover\:rotate-y-180 {
+  transition: transform 0.3s;
+}
+
+.hover\:rotate-y-180:hover {
+  transform: rotateY(180deg);
+}
+
+
+#currency-compact {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+#currency-compact.-translate-x-10 {
+  transform: translateX(-40px);
+}
+
+#currency-expanded {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#currency-expanded.translate-x-full {
+  transform: translateX(100%);
+}
+
+#currency-expanded.translate-x-0 {
+  transform: translateX(0%);
+}
+
+#currency-expanded.opacity-0 {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+#currency-expanded.opacity-100 {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+
+/* Arrow disappear and reappear animation */
+@keyframes arrow-move-out {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  80% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+@keyframes arrow-move-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrow-move-out-left {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  80% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+@keyframes arrow-move-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Smooth, slow, infinite wave animation for play button - continuous disappear */
+@keyframes kopi-wave1 {
+  0% {
+    transform: scale(1);
+    opacity: 0.18;
+  }
+
+  10% {
+    opacity: 0.18;
+  }
+
+  60% {
+    transform: scale(1.4);
+    opacity: 0.12;
+  }
+
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+@keyframes kopi-wave2 {
+  0% {
+    transform: scale(1);
+    opacity: 0.13;
+  }
+
+  15% {
+    opacity: 0.13;
+  }
+
+  70% {
+    transform: scale(1.3);
+    opacity: 0.08;
+  }
+
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+.animate-kopi-wave1 {
+  animation: kopi-wave1 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-kopi-wave2 {
+  animation: kopi-wave2 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite 1.2s;
+}
+
+/* Zoom bounce animation for play button on hover */
+@keyframes bounce-zoom-kopi {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.06);
+  }
+
+  50% {
+    transform: scale(0.97);
+  }
+
+  70% {
+    transform: scale(1.03);
+  }
+
+  85% {
+    transform: scale(0.99);
+  }
+}
+
+.hover\:animate-bounce-zoom-kopi:hover {
+  animation: bounce-zoom-kopi 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+
+
+@media (max-width: 767px) {
+  #soil-stories {
+    background-image: none !important;
+  }
+}
