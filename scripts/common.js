@@ -381,6 +381,7 @@ const scrollNavbar = document.getElementById('scroll-navbar');
 let lastScrollY = window.scrollY;
 
 window.addEventListener('scroll', () => {
+    if (!scrollNavbar) return; // Prevent errors if navbar is missing
     if (window.scrollY > 100 && window.scrollY < lastScrollY) {
         // Scrolling up, show navbar
         scrollNavbar.classList.remove('-translate-y-full');
@@ -391,6 +392,23 @@ window.addEventListener('scroll', () => {
         scrollNavbar.classList.remove('translate-y-0');
     }
     lastScrollY = window.scrollY;
+});
+
+const scrollNavbar2 = document.getElementById('scroll-navbar2');
+let lastScrollY2 = window.scrollY;
+
+window.addEventListener('scroll', () => {
+    if (!scrollNavbar2) return;
+    if (window.scrollY > 100 && window.scrollY < lastScrollY2) {
+        // Scrolling up and not at the very top: show navbar
+        scrollNavbar2.classList.remove('translate-y-full');
+        scrollNavbar2.classList.add('translate-y-0');
+    } else {
+        // Scrolling down or at the top: hide navbar
+        scrollNavbar2.classList.add('translate-y-full');
+        scrollNavbar2.classList.remove('translate-y-0');
+    }
+    lastScrollY2 = window.scrollY;
 });
 
 // --- Search overlay logic ---
@@ -489,42 +507,81 @@ window.addEventListener('scroll', () => {
 
 
 function animateSoilBars() {
-  const bars = [
-    { id: 'soil-bar1', label: 'soil-bar1-label', percent: 90 },
-    { id: 'soil-bar2', label: 'soil-bar2-label', percent: 93 },
-    { id: 'soil-bar3', label: 'soil-bar3-label', percent: 91 }
-  ];
-  bars.forEach(bar => {
-    let current = 0;
-    const target = bar.percent;
-    const barElem = document.getElementById(bar.id);
-    const labelElem = document.getElementById(bar.label);
-    if (!barElem || !labelElem) return;
-    barElem.style.width = '0%';
-    labelElem.textContent = '0%';
-    const interval = setInterval(() => {
-      if (current < target) {
-        current++;
-        barElem.style.width = current + '%';
-        labelElem.textContent = current + '%';
-      } else {
-        clearInterval(interval);
-      }
-    }, 12);
-  });
+    const bars = [
+        { id: 'soil-bar1', label: 'soil-bar1-label', percent: 90 },
+        { id: 'soil-bar2', label: 'soil-bar2-label', percent: 93 },
+        { id: 'soil-bar3', label: 'soil-bar3-label', percent: 91 }
+    ];
+    bars.forEach(bar => {
+        let current = 0;
+        const target = bar.percent;
+        const barElem = document.getElementById(bar.id);
+        const labelElem = document.getElementById(bar.label);
+        if (!barElem || !labelElem) return;
+        barElem.style.width = '0%';
+        labelElem.textContent = '0%';
+        const interval = setInterval(() => {
+            if (current < target) {
+                current++;
+                barElem.style.width = current + '%';
+                labelElem.textContent = current + '%';
+            } else {
+                clearInterval(interval);
+            }
+        }, 12);
+    });
 }
 
 // Intersection Observer to trigger animation once
 let soilBarsAnimated = false;
 const soilSection = document.getElementById('soil-stories');
 if (soilSection) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !soilBarsAnimated) {
-        animateSoilBars();
-        soilBarsAnimated = true;
-      }
-    });
-  }, { threshold: 0.3 });
-  observer.observe(soilSection);
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !soilBarsAnimated) {
+                animateSoilBars();
+                soilBarsAnimated = true;
+            }
+        });
+    }, { threshold: 0.3 });
+    observer.observe(soilSection);
 }
+
+
+// Animate footer background image on scroll
+const footer = document.querySelector('footer');
+const footerBgHouse = document.getElementById('footer-bg-house');
+
+window.addEventListener('scroll', () => {
+    if (!footer || !footerBgHouse) return;
+    const footerRect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    // Only animate when the footer is in view
+    if (footerRect.top < windowHeight && footerRect.bottom > 0) {
+        // Calculate how much the user has scrolled past the footer's top
+        const scrollPast = Math.max(0, windowHeight - footerRect.top);
+        // Adjust this divisor for more/less movement
+        const moveX = Math.min(200, scrollPast / 5); // max 100px
+
+        // Move right when scrolling down, left when scrolling up
+        footerBgHouse.style.transform = `translateX(${moveX}px)`;
+    } else if (footerRect.top >= windowHeight) {
+        // Reset if above viewport
+        footerBgHouse.style.transform = 'translateX(0)';
+    }
+});
+
+
+// Scroll to top button logic
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = 'flex';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+});
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
