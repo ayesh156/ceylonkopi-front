@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOPI - Ceylon Coffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/common.css">
+</head>
+
+<body class="bg-white min-h-screen font-inter">
+    <!-- Header -->
+    <header class="relative z-40">
+
+        <!-- Navigation -->
+        <nav class="bg-[#2E524A] w-full">
+            <div class="max-w-6xl mx-auto py-4 flex flex-row justify-between md:items-center px-6 md:px-2 gap-4">
+
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="images/KOPI01-logo.png" alt="KOPI Logo" class="h-28 w-auto object-contain" />
+                    </a>
+                </div>
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">About
+                        KOPI</a>
+                    <a href="why-we-special.html"
+                        class="text-white font-medium hover:text-[#9DAF7E] transition-colors">Why KOPI is
+                        Special</a>
+                    <a href="making-process.html" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">Making Process</a>
+                    <a href="kopi-shop.html" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">KOPI Shop</a>
+                    <a href="perfect-brew.html" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">Perfect Brew</a>
+                    <a href="contact.html" class="text-white font-medium hover:text-[#9DAF7E] transition-colors">Contact</a>
+                </div>
+                <!-- Right Icons -->
+                <div class="flex items-center space-x-6">
+                    <!-- Hamburger (mobile only) -->
+                    <button id="openSidebar" class="text-white text-2xl md:hidden focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <!-- Search -->
+                    <button id="scroll-navbar-search-btn" class="text-white text-2xl focus:outline-none">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <!-- Cart -->
+                    <div class="relative">
+                        <a href="#" class="text-white text-2xl">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                        <span
+                            class="absolute -top-2 -right-2 bg-green-500 rounded-full px-2 py-0.5 text-xs text-white">0</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebarMenu"
+        class="fixed top-0 right-0 h-full w-[95vw] max-w-[500px] bg-[#181810] z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <button id="closeSidebar" class="text-white text-3xl absolute top-6 right-6 focus:outline-none">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="flex flex-col mt-20 px-8 space-y-6">
+            <a href="about.html" class="text-white text-xl font-medium border-b border-[#333] pb-4">About KOPI</a>
+            <a href="why-we-special.html" class="text-[#9DAF7E] text-xl font-medium border-b border-[#333] pb-4">Why
+                KOPI Is Special</a>
+            <a href="making-process.html" class="text-white text-xl font-medium border-b border-[#333] pb-4">Making Process</a>
+            <a href="kopi-shop.html" class="text-white text-xl font-medium border-b border-[#333] pb-4">KOPI Shop</a>
+            <a href="perfect-brew.html" class="text-white text-xl font-medium border-b border-[#333] pb-4">Perfect Brew</a>
+            <a href="contact.html" class="text-white text-xl font-medium border-b border-[#333] pb-4">Contact</a>
+            <div class="flex items-center mt-6 border-b border-[#333] pb-4">
+                <i class="fas fa-shopping-cart text-white mr-3"></i>
+                <span class="text-white text-lg">0 items</span>
+                <span class="text-white text-lg ml-2">₤0.00</span>
+            </div>
+        </nav>
+
+    </div>
+
+
+    <!-- Hero Banner Section -->
+    <section class="relative h-[320px] md:h-[280px] flex items-center justify-center overflow-hidden">
+        <!-- Background image -->
+        <div class="absolute inset-0">
+            <img src="images/about/hero/img-1.jpg" alt="About Banner" class="w-full h-full object-cover object-top" />
+            <!-- Dark overlay -->
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+        </div>
+        <!-- Breadcrumb text -->
+        <div class="relative z-10 flex flex-col items-center">
+            <nav class="text-white text-sm font-playfair font-semibold tracking-wide">
+                <span class="opacity-80">HOME</span>
+                <span class="mx-2 opacity-60">/</span>
+                <span class="opacity-100">WHY WE SPECIAL</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Get to know that prominantly Section -->
+    <section class="relative overflow-hidden px-3 md:px-0 pt-8 md:pt-36 min-h-[600px] flex items-center justify-center">
+        <!-- Left green shape (absolute, decorative) -->
+        <div class="absolute left-0 top-20 h-full w-2/5 z-0 hidden md:block">
+            <div class="h-full w-[110%] bg-[#2E524A] "></div>
+        </div>
+        <!-- Optional: right background image or color -->
+        <div class="absolute right-0 -bottom-8 w-64 z-5">
+            <img src="images/why-we-special/second/leaf-bg-img.webp" alt="Ceylon Coffee Background"
+                class="w-full h-full object-cover object-center rounded-bl-[60px] opacity-1" />
+        </div>
+        <div
+            class="relative z-10 max-w-7xl w-full flex flex-col md:flex-row items-center md:items-stretch px-4 pb-28 pt-16 gap-20 md:gap-8">
+            <!-- Left: Image -->
+            <div class="flex-1 md:-ml-20 flex items-center justify-center">
+                <div
+                    class="rounded-2xl overflow-hidden shadow-lg w-full max-w-2xl  bg-[#3A5F54] flex items-center justify-center">
+                    <img src="images/why-we-special/second/left-img.jpg" alt="KOPI background"
+                        class="w-full h-full object-cover" />
+                </div>
+            </div>
+            <!-- Right: Text -->
+            <div class="flex-1 flex flex-col justify-center max-w-xl px-2 md:pr-20">
+                <h3 class="text-[#DB4E0A] text-2xl font-normal mb-2 font-inter">Get to know that prominantly</h3>
+                <h2 class="font-playfair text-5xl font-bold text-[#2E524A] mb-8 md:leading-[1.1]">
+                    Why Ceylon Coffee Is Special
+                </h2>
+                <p class="text-[#878680] text-[16px] leading-relaxed font-normal">
+                    Ceylon coffee, or Sri Lankan coffee, thrives in the island’s diverse microclimates and altitudes,
+                    from the misty hills to the sun-drenched plains. Renowned for its bright acidity, medium body, and
+                    hints of citrus and spice, each cup reflects the terroir of its distinct growing regions. The legacy
+                    of Ceylon pride is evident in every meticulously cultivated bean, promising a sensory journey
+                    through the rich history and unique geography of this tropical paradise. Explore the nuanced flavors
+                    and aromatic excellence that define Ceylon Kopi, where tradition meets exceptional quality in every
+                    sip.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get to know that prominantly Section -->
+    <section class="pb-20 pt-20 px-4">
+        <div class="max-w-[59rem] mx-auto">
+            <h3 class="text-[#DB4E0A] text-2xl font-normal text-center mb-3 font-inter">Get to know that prominantly
+            </h3>
+            <h2 class="text-[#2E524A] text-5xl font-bold text-center font-playfair mb-9">
+                Where tradition meets excellence
+            </h2>
+            <p class="text-[#878680] text-base md:text-[16px] leading-[1.8] mb-8 font-inter text-center mx-2">
+                Captivates with a unique flavor profile shaped by diverse climates and elevations. Renowned for its
+                bright acidity, medium body, and distinctive notes, it's a sensory journey through history. Let's see
+                why Ceylon Kopi stands apart – where tradition meets excellence
+        </div>
+    </section>
+
+    <!-- Island Elegance Section -->
+    <section class="bg-[#BAC9AC] pt-12 pb-20 md:py-12 px-7 md:px-4 md:px-0 flex items-center justify-center">
+        <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-stretch gap-8 mx-auto">
+            <!-- Left: Image -->
+            <div class="flex-1 flex items-center justify-center">
+                <img src="images/why-we-special/fourth/left-img.jpg" alt="Sri Lanka Map"
+                    class="rounded-none shadow-lg md:w-[36rem] md:max-w-2xl object-cover md:aspect-[16/10]" />
+            </div>
+            <!-- Right: Text -->
+            <div class="flex-1 flex flex-col justify-center max-w-2xl">
+                <h3 class="text-black text-2xl font-normal mb-2 font-inter">Island Elegance</h3>
+                <h2 class="font-playfair text-5xl font-bold text-[#2E524A] mb-8 md:leading-[1.1]">
+                    Geographic Origin
+                </h2>
+                <p class="text-[#222] text-[16px] leading-[1.8] md:leading-relaxed font-normal">
+                    Ceylon coffee, also known as Sri Lankan coffee, is exclusively grown in Sri Lanka, an island nation
+                    located in the Indian Ocean, off the southeastern coast of India. The country's diverse
+                    microclimates and varying elevations contribute to the coffee’s distinctive characteristics.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arabica & Robusta Excellence Section -->
+    <section class="bg-[#2E524A] pt-12 pb-20 md:py-12 px-7 md:px-4 md:px-0 flex items-center justify-center">
+        <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-stretch gap-8 mx-auto">
+            <!-- Left: Image -->
+            <div class="flex-1 flex flex-col justify-center max-w-2xl">
+                <h3 class="text-[#DBC10A] text-2xl font-normal mb-2 font-inter">Arabica & Robusta Excellence</h3>
+                <h2 class="font-playfair text-5xl font-bold text-white mb-8 md:leading-[1.1]">
+                    Cultivar
+                </h2>
+                <p class="text-white text-[15px] leading-[1.8] font-normal">
+                    Arabica and Robusta coffee (Coffea arabica and Coffea canephora) thrive in Sri Lanka’s diverse
+                    microclimates. Arabica cultivars such as Typica and SL28, known for nuanced flavors, complement the
+                    robust qualities of select Robusta varieties.
+                </p>
+            </div>
+            <!-- Right: Text -->
+            <div class="flex-1 flex items-center justify-center">
+                <img src="images/why-we-special/fifth/right-bg-img.jpg" alt="Sri Lanka Map"
+                    class="rounded-none shadow-lg md:w-[36rem] md:max-w-2xl object-cover" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Elevated Artistry Section -->
+    <section class="bg-[#BAC9AC] pt-12 pb-20 md:py-12 px-7 md:px-4 md:px-0 flex items-center justify-center">
+        <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-stretch gap-8 mx-auto">
+            <!-- Left: Image -->
+            <div class="flex-1 flex items-center justify-center">
+                <img src="images/why-we-special/sixth/left-img.jpg" alt="Sri Lanka Map"
+                    class="rounded-none shadow-lg md:w-[36rem] md:max-w-2xl object-cover md:aspect-[16/10]" />
+            </div>
+            <!-- Right: Text -->
+            <div class="flex-1 flex flex-col justify-center max-w-2xl">
+                <h3 class="text-black text-2xl font-normal mb-2 font-inter">Elevated Artistry</h3>
+                <h2 class="font-playfair text-5xl font-bold text-[#2E524A] mb-8 md:leading-[1.1]">
+                    Altitude
+                </h2>
+                <p class="text-[#222] text-[16px] leading-[1.8] md:leading-relaxed font-normal">
+                    Coffee in Sri Lanka is cultivated at a wide range of altitudes, from sea level to over 6,000 feet
+                    (approximately 1,800 meters) above sea level. The altitude at which coffee is grown significantly
+                    affects its flavor profile, with higher elevations often yielding beans with greater complexity and
+                    acidity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Balanced Symphony Section -->
+    <section class="bg-[#2E524A] pt-12 pb-20 md:py-12 px-7 md:px-4 md:px-0 flex items-center justify-center">
+        <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-stretch gap-8 mx-auto">
+            <!-- Left: Image -->
+            <div class="flex-1 flex flex-col justify-center max-w-2xl">
+                <h3 class="text-[#DBC10A] text-2xl font-normal mb-2 font-inter">Balanced Symphony</h3>
+                <h2 class="font-playfair text-5xl font-bold text-white mb-8 md:leading-[1.1]">
+                    Flavor Profile
+                </h2>
+                <p class="text-white text-[15px] leading-[1.8] font-normal">
+                    Ceylon coffee is celebrated for its well-balanced flavor profile. It typically features bright
+                    acidity, medium body, and a diverse range of flavor notes. Common flavor descriptors include citrus,
+                    floral, nutty, and sometimes chocolatey or spicy undertones. The specific flavors can vary depending
+                    on the region and altitude where the coffee is grown.
+                </p>
+            </div>
+            <!-- Right: Text -->
+            <div class="flex-1 flex items-center justify-center">
+                <img src="images/why-we-special/seventh/right-bg-img.jpg" alt="Sri Lanka Map"
+                    class="rounded-none shadow-lg md:w-[36rem] md:max-w-2xl object-cover" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Crafting Perfection & Regional Resonance Section -->
+    <section class="bg-white py-10 px-8 md:px-0">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
+            <!-- Left: Processing Methods -->
+            <div
+                class="flex flex-col md:items-center md:items-start md:pr-8 py-6 border-b md:border-b-0 md:border-r-2 border-[#2E524A]">
+                <h3 class="text-[#2E524A] text-2xl font-normal mb-2 font-inter text-left">Crafting
+                    Perfection</h3>
+                <h2 class="font-playfair text-5xl font-bold text-[#2E524A] mb-8 md:leading-[1.1] text-left">
+                    Processing Methods
+                </h2>
+                <p class="text-[#222] text-[16px] leading-relaxed font-normal mb-2 text-left max-w-2xl">
+                    Sri Lanka employs various coffee processing methods <b>it its traditional methods</b>, including
+                    washed, natural, and honey-processed. The choice of processing method can influence the coffee’s
+                    flavor, with washed coffees often being cleaner and brighter, while natural process coffees can
+                    exhibit fruitier and more intense flavors.
+                </p>
+                <img src="images/why-we-special/eighth/left-img.png" alt="Coffee Beans Sketch" class="w-64" />
+            </div>
+            <!-- Right: Growing Regions -->
+            <div class="flex flex-col items-end px-8 py-6">
+                <h3 class="text-[#2E524A] text-2xl font-normal mb-2 font-inter text-right">
+                    Regional Resonance</h3>
+                <h2
+                    class="font-playfair text-6xl md:text-5xl font-bold text-[#2E524A] mb-8 md:leading-[1.1] text-right">
+                    Growing Regions
+                </h2>
+                <p class="text-[#222] text-[16px] leading-relaxed font-normal mb-2 text-right max-w-2xl">
+                    Sri Lanka has several coffee-producing regions, each contributing unique characteristics to Ceylon
+                    coffee. Some notable coffee-growing areas include the Central Highlands (e.g., Kandy, Matale), and
+                    the Sabaragamuwa region <br /> (Kegalle Region).
+                </p>
+                <img src="images/why-we-special/eighth/right-img.png" alt="Coffee Regions Sketch" class="w-64" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Green Commitment Section -->
+    <section class="bg-[#BAC9AC] pt-12 pb-20 md:py-12 px-7 md:px-4 md:px-0 flex items-center justify-center">
+        <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-stretch gap-8 mx-auto">
+            <!-- Left: Image -->
+            <div class="flex-1 flex flex-col justify-center max-w-2xl">
+                <h3 class="text-black text-2xl font-normal mb-2 font-inter">Green Commitment</h3>
+                <h2 class="font-playfair text-5xl font-bold text-[#2E524A] mb-8 md:leading-[1.1]">
+                    Sustainability and Certification
+                </h2>
+                <p class="text-[#222] text-[15px] leading-[1.8] font-medium">
+                    Sri Lankan coffee growers have increasingly adopted sustainable and environmentally friendly
+                    practices in recent years. Many coffee farms in Sri Lanka are Rainforest Alliance or Fair Trade
+                    certified, demonstrating a commitment to ethical and sustainable coffee production.
+                </p>
+            </div>
+            <!-- Right: Text -->
+            <div class="flex-1 flex items-center justify-center">
+                <img src="images/why-we-special/ninth/right-bg-img.jpg" alt="Sri Lanka Map"
+                    class="rounded-none shadow-lg md:w-[36rem] md:max-w-2xl object-cover" />
+            </div>
+        </div>
+    </section>
+
+    <!-- A Journey Through Time Section -->
+    <section class="bg-[#2E524A] pt-12 pb-20 md:py-12 px-7 md:px-4 md:px-0 flex items-center justify-center">
+        <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-stretch gap-8 mx-auto">
+            <!-- Left: Image -->
+            <div class="flex-1 flex items-center justify-center">
+                <img src="images/why-we-special/tenth/left-bg-img.jpg" alt="Sri Lanka Map"
+                    class="rounded-none shadow-lg md:w-[36rem] md:max-w-2xl object-cover" />
+            </div>
+            <!-- Right: Text -->
+            <div class="flex-1 flex flex-col justify-center max-w-2xl">
+                <h3 class="text-[#DBC10A] text-2xl font-normal mb-2 font-inter">A Journey Through Time</h3>
+                <h2 class="font-playfair text-5xl font-bold text-white mb-8 md:leading-[1.1]">
+                    Historical Significance
+                </h2>
+                <p class="text-white text-[15px] leading-[1.8] font-normal">
+                    Ceylon coffee has a rich history dating back to the 17th century when coffee cultivation was a major
+                    industry in Sri Lanka. However, in the late 1800s, coffee plantations were devastated by a coffee
+                    leaf disease known as coffee rust. This led to a shift to tea cultivation in the country. Today,
+                    Ceylon coffee is making a comeback, and its unique qualities are once again being appreciated by
+                    coffee connoisseurs around the world.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ceylon pride around the world Section -->
+    <section class="bg-[#BAC9AC] pt-12 pb-20 md:py-12 px-7 md:px-4 md:px-0 flex items-center justify-center mb-20 md:mb-28">
+        <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-stretch gap-8 mx-auto">
+            <!-- Left: Image -->
+            <div class="flex-1 flex flex-col justify-center max-w-2xl">
+                <h3 class="text-black text-2xl font-normal mb-2 font-inter">Ceylon pride around the world</h3>
+                <h2 class="font-playfair text-5xl font-bold text-[#2E524A] mb-8 md:leading-[1.1]">
+                    Availability
+                </h2>
+                <p class="text-[#222] text-[15px] leading-[1.8] font-medium">
+                    Ceylon coffee is relatively less common in international markets compared to coffees from countries like Ethiopia, Colombia, or Brazil. However, it has gained recognition for its distinctive flavors, and specialty coffee roasters are increasingly sourcing beans from Sri Lanka.
+                </p>
+            </div>
+            <!-- Right: Text -->
+            <div class="flex-1 flex items-center justify-center">
+                <img src="images/why-we-special/eleventh/right-bg-img.jpg" alt="Sri Lanka Map"
+                    class="rounded-none shadow-lg md:w-[36rem] md:max-w-2xl object-cover" />
+            </div>
+        </div>
+    </section>
+
+      <!-- Footer Section -->
+    <footer class="bg-[#24231D]">
+        <div class="pt-20 pb-5 px-6 md:px-0 relative z-10 overflow-hidden">
+            <!-- Moving background image at the bottom, scrolls horizontally with page scroll -->
+            <div id="footer-bg-house"
+                class="pointer-events-none absolute -left-28 bottom-0 w-full h-60 md:h-[20rem] bg-no-repeat bg-bottom bg-contain z-0 transition-transform duration-500"
+                style="background: url('images/footer/footer-bg.webp') left bottom/contain no-repeat; opacity: 0.05;">
+            </div>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 md:gap-10 items-start relative gap-20 z-10">
+                <!-- Logo & Description -->
+                <div class="flex flex-col items-start">
+                     <a href="index.html">
+                    <img src="images/KOPI01-logo.png" alt="KOPI Logo" class="h-24 w-auto mb-6">
+                    </a>
+                    <p class="text-[#A5A49A] leading-[1.8] text-[16px] mb-8 max-w-xs">
+                        Renowned for exquisite coffee, a heritage of quality, and sustainable practices in Sri Lanka.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#"
+                            class="bg-[#181810] rounded-full px-3 py-2 text-white hover:bg-[#33584b] transition"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="bg-[#181810] rounded-full px-3 py-2 text-white hover:bg-[#33584b] transition"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#"
+                            class="bg-[#181810] rounded-full px-3 py-2 text-white hover:bg-[#33584b] transition"><i
+                                class="fab fa-pinterest"></i></a>
+                        <a href="#"
+                            class="bg-[#181810] rounded-full px-3 py-2 text-white hover:bg-[#33584b] transition"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <!-- Explore Links -->
+                <div>
+                    <h3 class="text-white font-playfair text-xl font-bold mb-4">Explore</h3>
+                    <div class="flex items-center mb-4">
+                        <span class="w-12 h-1 bg-[#166621] rounded mr-2"></span>
+                        <span class="w-1 h-1 bg-[#166621] rounded-full"></span>
+                    </div>
+                    <ul class="space-y-4 text-[#A5A49A] text-[14px]">
+                        <li>
+                            <a href="about.html"
+                                class="group flex items-center cursor-pointer transition-colors hover:text-white">
+                                <i
+                                    class="fas fa-leaf mr-2 text-[#A5A49A] transition-colors group-hover:text-[#166621]"></i>
+                                <span class="transition-colors group-hover:text-white"> About Coffee</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="why-we-special.html"
+                                class="group flex items-center cursor-pointer transition-colors hover:text-white">
+                                <i
+                                    class="fas fa-leaf mr-2 text-[#A5A49A] transition-colors group-hover:text-[#166621]"></i>
+                                <span class="transition-colors group-hover:text-white"> Why Why KOPI is Special</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="making-process.html"
+                                class="group flex items-center cursor-pointer transition-colors hover:text-white">
+                                <i
+                                    class="fas fa-leaf mr-2 text-[#A5A49A] transition-colors group-hover:text-[#166621]"></i>
+                                <span class="transition-colors group-hover:text-white"> Making Process</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="kopi-shop.html"
+                                class="group flex items-center cursor-pointer transition-colors hover:text-white">
+                                <i
+                                    class="fas fa-leaf mr-2 text-[#A5A49A] transition-colors group-hover:text-[#166621]"></i>
+                                <span class="transition-colors group-hover:text-white"> KOPI Shop</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html"
+                                class="group flex items-center cursor-pointer transition-colors hover:text-white">
+                                <i
+                                    class="fas fa-leaf mr-2 text-[#A5A49A] transition-colors group-hover:text-[#166621]"></i>
+                                <span class="transition-colors group-hover:text-white"> Contact Us</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Product Image (centered on desktop) -->
+                <div class="flex justify-center md:mr-20">
+                    <img src="images/footer/product1-img.jpg" alt="Arabica Coffee Powder"
+                        class="rounded-xl shadow-lg w-[22rem] max-w-2xl object-cover">
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-white font-playfair text-xl font-bold mb-4">Contact</h3>
+                    <div class="flex items-center mb-4">
+                        <span class="w-12 h-1 bg-[#166621] rounded mr-2"></span>
+                        <span class="w-1 h-1 bg-[#166621] rounded-full"></span>
+                    </div>
+                    <ul class="space-y-4 text-[#A5A49A] text-[14px]">
+                        <li><i class="fas fa-phone-alt mr-2 text-[#eec044]"
+                                style="transform: rotateY(180deg); display: inline-block;"></i> +94 (070) 188 9889</li>
+                        <li><i class="fas fa-envelope mr-2 text-[#eec044]"></i> infor@ceylonko.com</li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-[#eec044] text-lg mt-1 mr-3"></i>
+                            <span>
+                                Ceylonko Global ( Pvt) Ltd,<br>
+                                No 31,Rambukkana Road<br>
+                                Kegalle Sri Lanka
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright & Links -->
+        <div class="w-full bg-[#1F1E17] flex justify-center py-8 px-4 mt-12">
+            <div
+                class="max-w-6xl w-full flex flex-col md:flex-row md:justify-between text-[#A5A49A] gap-12 md:gap-0 text-center text-[15px] ">
+                <span>© All Copyright 2024 by Ceylonco Pvt Ltd</span>
+                <span>Developed By Silicon Radon Networks (Pvt) Ltd</span>
+                <div class="space-x-3">
+                    <a href="#" class="hover:underline">Shipping & Return Policy</a>
+                    <span class="hidden md:inline">|</span>
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <div class="fixed bottom-36 right-8 z-50">
+        <a href="#"
+            class="bg-green-500 hover:bg-green-600 text-white rounded-full px-4 pt-5 pb-4 shadow-2xl transition-all duration-300 hover-scale">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Currency Selector -->
+    <div id="currency-selector" class="fixed top-1/2 right-0 transform -translate-y-1/2 z-40 w-[320px]">
+        <!-- Compact (default) -->
+        <div id="currency-compact" class="flex flex-col absolute right-0 transition-all duration-300 z-10 text-sm">
+            <button class="bg-[#33584b] text-white mb-1 font-semibold py-3 px-3 border-b border-[#222]">LKR</button>
+            <button class="bg-[#222] text-white font-semibold py-3 text-left px-3">USD</button>
+        </div>
+        <!-- Expanded (hidden by default) -->
+        <div id="currency-expanded"
+            class="bg-[#222] text-white rounded-l-lg shadow-lg absolute right-0 top-0 w-[320px] transition-all duration-300 translate-x-full opacity-0 pointer-events-none z-20 text-[12px]">
+            <div class="px-6 py-3 text-center text-sm border-b border-gray-700 font-semibold tracking-wide">
+                SELECT YOUR CURRENCY
+            </div>
+            <button class="w-full flex items-center px-6 py-3 bg-[#33584b] text-white font-semibold focus:outline-none">
+                <span class="w-16 text-left">LKR</span>
+                <span class="flex-1 text-center">SRI LANKAN RUPEE</span>
+            </button>
+            <button class="w-full flex items-center px-6 py-3 bg-[#222] text-white font-semibold focus:outline-none">
+                <span class="w-16 text-left">USD</span>
+                <span class="flex-1 text-center">UNITED STATES (US) DOLLAR</span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="scroll-navbar-search-overlay"
+        class="fixed inset-0 bg-black bg-opacity-80 z-[1000] flex items-center justify-center hidden">
+        <div class="bg-[#222] rounded-lg p-6 flex items-center space-x-4 w-full max-w-md mx-auto">
+            <input type="text" placeholder="Search..."
+                class="flex-1 px-4 py-2 rounded bg-[#181810] text-white outline-none" />
+            <button class="bg-[#2E524A] text-white px-5 py-2 rounded hover:bg-[#9DAF7E] transition">Search</button>
+            <button id="scroll-navbar-search-close" class="text-white text-2xl ml-2 focus:outline-none">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn"
+        class="fixed bottom-12 right-8 z-50 bg-[#166621] hover:bg-[#14541a] text-white w-14 h-14 rounded-xl flex items-center justify-center shadow-lg transition-colors duration-300 group"
+        style="display:none;">
+        <svg class="w-8 h-8 transition-transform duration-300 group-hover:animate-bounce" fill="none"
+            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 15l6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <script src="scripts/common.js"></script>
+
+</body>
+
+</html>
